@@ -20,6 +20,28 @@
   text-decoration: none;
   background-color: #4fa1f8;
 }
+/* @media (min-width: 768px) {
+  .container-md {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1500px) {
+  .container-md {
+    max-width: 1450px;
+  }
+}
+@media (min-width: 1700px) {
+  .container-md {
+    max-width: 1650px;
+  }
+} */
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 /* .dropdown-item:focus,
 .dropdown-item:hover {
