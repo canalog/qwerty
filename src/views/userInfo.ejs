@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>User Info</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+      <a class="navbar-brand" href="/">어서오세요 <%= user.ID %> 님</a>
+      <ul class="navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" href="#">태스크 만들기</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">태스크 보기</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/userInfo"><b>내 정보</b></a>
+        </li>
+        <li class="nav-item">
+          <form method="POST" action="/logout">
+            <a class="nav-link"
+              ><button class="btn btn-outline-primary">로그아웃</button></a
+            >
+          </form>
+        </li>
+        <li class="nav-item"></li>
+      </ul>
+    </nav>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
