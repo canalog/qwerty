@@ -5,14 +5,14 @@ const handleLogin = (id, password) => {
   return new Promise(async (resolve, reject) => {
     const user = await findUserById(id);
     if (user) {
+      if (id === "admin") {
+        if (user.PASSWORD === "admin" && password === "admin") resolve(true);
+      }
       await bcrypt
         .compare(password.toString(), user.PASSWORD)
         .then((isMatch) => {
-          if (isMatch) {
-            resolve(true);
-          } else {
-            reject(`잘못된 비밀번호입니다.`);
-          }
+          if (isMatch) resolve(true);
+          else reject(`잘못된 비밀번호입니다.`);
         });
     } else {
       reject(`존재하지 않는 아이디입니다.`);
@@ -74,8 +74,7 @@ const comparePasswordUser = (user, password, id) => {
   return new Promise(async (resolve, reject) => {
     try {
       if (id === "admin") {
-        if (password === user.PASSWORD) resolve(true);
-        else resolve("잘못된 비밀번호입니다.");
+        if (user.PASSWORD === "admin" && password === "admin") resolve(true);
       }
       await bcrypt
         .compare(password.toString(), user.PASSWORD)

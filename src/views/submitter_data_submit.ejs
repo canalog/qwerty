@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('head'); -%>
+    <title>제출하기</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-6">
+          <h2><%=task %> 파일 제출</h2>
+          <hr class="mb-3" />
+          <form
+            method="POST"
+            action="/submitter/data_parse"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="csvfile">CSV 파일</label>
+              <input class="form-control" type="file" name="csvfile" required />
+            </div>
+            <div class="form-group">
+              <label for="typeid">원본 데이터 타입</label>
+              <input class="form-control" type="text" name="typeid" required />
+            </div>
+            <div class="form-group">
+              <label for="round">회차</label>
+              <input
+                class="form-control"
+                type="text"
+                name="round"
+                placeholder="ex) 3회차면 -> 3"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="date">데이터 수집 기간</label>
+              <input type="date" name="startdate" id="date" required /> ~
+              <input type="date" name="enddate" id="date" required />
+            </div>
+            <button class="btn btn-primary" type="submit">제출하기</button>
+          </form>
+          <hr class="mb-3" />
+          <ul>
+            <li><a href="/">홈으로 돌아가기</a></li>
+            <li>
+              <a href="/submitter/participate">태스크 참여 목록 보기</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

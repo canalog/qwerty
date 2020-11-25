@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('head'); -%>
+    <title>Search</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row mt-4">
+        <h2>기능별 검색</h2>
+        <table class="table table-hover table-striped table-sm table-bordered">
+          <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>이름</th>
+                <th>성별</th>
+                <th>주소</th>
+                <th>생일</th>
+                <th>전화번호</th>
+                <th>나이</th>
+                <th>유형(역할)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(i = 0; i < submitter.length; i++) { %>
+            <tr>
+              <td><a href="/"><%=submitter[i].ID %></a></td>
+              <td><%=submitter[i].NAME %></td>
+              <td><%=submitter[i].GENDER %></td>
+              <td><%=submitter[i].ADDRESS %></td>
+              <td><%=submitter[i].BIRTHDATE.toString().substring(0, 15) %></td>
+              <td><%=submitter[i].PNUM %></td>
+              <td><%=submitter[i].AGE %></td>
+              <td><%=submitter[i].ROLE %></td>
+            </tr>
+            <% } %>
+          </tbody>
+          <tbody>
+            <% for(i = 0; i < estimator.length; i++) { %>
+            <tr>
+              <td><a href="/"><%=estimator[i].ID %></a></td>
+              <td><%=estimator[i].NAME %></td>
+              <td><%=estimator[i].GENDER %></td>
+              <td><%=estimator[i].ADDRESS %></td>
+              <td><%=estimator[i].BIRTHDATE.toString().substring(0, 15) %></td>
+              <td><%=estimator[i].PNUM %></td>
+              <td><%=estimator[i].AGE %></td>
+              <td><%=estimator[i].ROLE %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+    </div>
+    <div><a href="/allUsers"> 이전 페이지로 돌아가기</a></div>
+  </body>
+</html>

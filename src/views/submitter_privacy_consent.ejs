@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('head'); -%>
+    <title>개인정보 동의</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="mt-4">
+        <h2><%=task %> 개인정보동의서</h2>
+        <p>여기에 개인정보 동의서가 들어갑니다.</p>
+        <p>
+            <% if(list[0]) { %>
+                <p>개인정보 동의서에 동의하지 않으면 태스크를 참여하실 수 없습니다.</p>
+            <% } %>
+            <% if(!list[0]) { %>
+                <p>하나를 선택해주십시오.</p>
+            <% } %>
+        </p>
+        <p>
+            <form action = "/submitter/privacy_confirm" method ='post'>
+                <div class="form-group">
+                <label for ="consent">개인정보동의서에 동의하시겠습니까?</label>
+                <label for="agree" class="radio"><input name = "consent" type = "radio" value = "yes" />동의</label>
+                
+                <label><input name = "consent" type = "radio" value = "no" />비동의</label>
+                </div>
+                <button class="btn btn-primary" type="submit">태스크 참여</button>
+            </form>
+        </p>
+        <hr class="mb-3" />
+        <ul>
+          <li><a href="/">홈으로 돌아가기</a></li>
+          <li><a href="/submitter/notparticipate">태스크 참여 신청하기</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

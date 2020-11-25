@@ -34,6 +34,13 @@ const checkLoggedOut = (req, res, next) => {
   next();
 };
 
+const checkInfo = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return res.redirect("/userInfo");
+  }
+  next();
+};
+
 const checkLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     return res.redirect("/login");
@@ -42,6 +49,7 @@ const checkLoggedIn = (req, res, next) => {
 };
 
 const postLogOut = (req, res) => {
+  req.logout();
   req.session.destroy(function (err) {
     return res.redirect("/login");
   });

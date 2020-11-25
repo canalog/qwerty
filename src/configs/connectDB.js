@@ -6,6 +6,7 @@ const connection = mysql.createConnection({
   database: process.env.DB_NAME,
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
+  dateStrings: "date",
 });
 
 connection.connect(function (err) {

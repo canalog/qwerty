@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('head'); -%>
+    <title>태스크 참여 신청</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-4">
+        <h2>참여 가능한 태스크 리스트</h2>
+        <hr class="mb-3" />
+        <div class="table-responsive-sm"></div>
+        <table class="table table-hover table-striped table-sm table-bordered">
+          <colgroup>
+            <col width="60" />
+            <col width="200" />
+            <col width="100" />
+          </colgroup>
+          <thead class="thead-dark">
+            <tr>
+                <th>번호</th>
+                <th>태스크 이름</th>
+                <th>태스크 참여</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(i = 0; i < list.length; i++) { %>
+            <tr>
+              <td><%=i+1 %></td>
+              <td><%=list[i].NAME %></td>
+              <td>
+                <form action='/submitter/privacy_consent' method ='post'>
+                    <input type = "hidden" name="taskname_request" value="<%=list[i].NAME %>">
+                    <input type = "submit" value="참여하기">
+                </form>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+      <hr class="mb-3" />
+      <div><a href="/"> 홈으로 돌아가기</a></div>
+    </div>
+  </body>
+</html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>태스크 참여 신청</title>
+    </head>
+    <body>
+        <h3>제출자 메뉴</h3>
+        <ul>
+            <li>
+                <a href = "/submitter">제출자 홈</a>
+            </li>
+            <li>
+                <a href = "/submitter/notparticipate">태스크 참여 신청</a>
+            </li>
+            <li>
+                <a href = "/submitter/participate">태스크 참여 목록</a>
+            </li>
+            <li>
+                <a href = "/submitter/task_record_list">제출 기록 확인</a>
+            </li>
+            <li>
+                <a href = "/submitter/task_score_list">내 점수 확인</a>
+            </li>
+            <li>
+                <a href = "/logout">로그아웃</a>
+            </li>
+        </ul>
+        <h2>참여 가능한 태스크 리스트</h2>
+        <table border='1'>
+            <colgroup>
+                <col width='60'><col width='200'><col width='100'>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>태스크 이름</th>
+                    <th>태스크 참여</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(i = 0; i < list.length; i++) { %>
+                <tr>
+                    <td><%=i+1 %></td>
+                    <td><%=list[i].NAME %></td>
+                    <td>
+                        <form action='/submitter/privacy_consent' method ='post'>
+                            <input type = "hidden" name="taskname_request" value="<%=list[i].NAME %>">
+                            <input type = "submit" value="참여하기">
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table boader='1'>
+        
+    </body>
+</html>
